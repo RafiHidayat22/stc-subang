@@ -8,7 +8,12 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/js/home.js',   // page-specific chunk
+                'resources/js/home.js',
+                'resources/js/about.js',
+                'resources/js/navbar.js',
+                'resources/js/program.js',
+                'resources/js/category_program.js',
+                'resources/js/detail_program.js'   // page-specific chunk
             ],
             refresh: true,
         }),

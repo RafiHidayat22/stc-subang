@@ -12,120 +12,6 @@
  *   homeContact*     — contact form UX & validation
  */
 
-// ══════════════════════════════════════════════════════════════════════════════
-// NAVBAR
-// ══════════════════════════════════════════════════════════════════════════════
-
-let homeNavbarScrolled = false;
-
-function homeNavbarInit() {
-    const bg     = document.getElementById('navbar-bg');
-    const brand  = document.getElementById('navbar-brand');
-    const links  = document.querySelectorAll('.nav-link');
-    const hamburgerLines = document.querySelectorAll('.hamburger-line');
-
-    if (!bg) return;
-
-function homeNavbarUpdate() {
-    const scrolled = window.scrollY > 60;
-    if (scrolled === homeNavbarScrolled) return;
-    homeNavbarScrolled = scrolled;
-
-    // Background
-    bg.classList.toggle('bg-surface-container-lowest/0',   !scrolled);
-    bg.classList.toggle('backdrop-blur-none',               !scrolled);
-    bg.classList.toggle('shadow-none',                      !scrolled);
-    bg.classList.toggle('bg-surface-container-lowest',      scrolled);
-    bg.classList.toggle('backdrop-blur-xl',                 scrolled);
-    bg.classList.toggle('shadow-md',                        scrolled);
-
-    // Brand color
-    brand?.classList.toggle('text-white',   !scrolled);
-    brand?.classList.toggle('text-primary', scrolled);
-
-    // Nav links
-    links.forEach(l => {
-        l.classList.toggle('text-white/90',   !scrolled);
-        l.classList.toggle('text-on-surface', scrolled);
-        l.classList.toggle('hover:text-safety-orange', true);
-    });
-
-    // Hamburger color
-    hamburgerLines.forEach(line => {
-        line.classList.toggle('bg-white', !scrolled);
-        line.classList.toggle('bg-primary', scrolled);
-    });
-}
-
-    window.addEventListener('scroll', homeNavbarUpdate, { passive: true });
-    homeNavbarUpdate();
-
-    // Active link on scroll
-    homeNavbarHighlightActive();
-}
-
-function homeNavbarHighlightActive() {
-    const sections = document.querySelectorAll('section[id]');
-    const links    = document.querySelectorAll('.nav-link[data-target]');
-
-    if (!sections.length || !links.length) return;
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            links.forEach(l => {
-                const isActive = l.dataset.target === `#${entry.target.id}`;
-                l.classList.toggle('text-safety-orange', isActive);
-                l.classList.toggle('after:w-full',       isActive);
-            });
-        });
-    }, { rootMargin: '-50% 0px -50% 0px' });
-
-    sections.forEach(s => observer.observe(s));
-}
-
-/** Called by navbar hamburger button (onclick in blade) */
-function homeNavbarToggleMobile(btn) {
-    const menu    = document.getElementById('mobile-menu');
-    const isOpen  = menu.getAttribute('aria-hidden') === 'false';
-
-    menu.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
-    btn.setAttribute('aria-expanded', !isOpen);
-    menu.classList.toggle('-translate-y-full', isOpen);
-    menu.classList.toggle('opacity-0',         isOpen);
-    menu.classList.toggle('pointer-events-none', isOpen);
-    menu.classList.toggle('translate-y-0',    !isOpen);
-    menu.classList.toggle('opacity-100',      !isOpen);
-    menu.classList.toggle('pointer-events-auto', !isOpen);
-
-    // Animate hamburger lines → X
-    const lines = btn.querySelectorAll('.hamburger-line');
-    lines[0]?.classList.toggle('rotate-45',    !isOpen);
-    lines[0]?.classList.toggle('translate-y-2', !isOpen);
-    lines[1]?.classList.toggle('opacity-0',    !isOpen);
-    lines[2]?.classList.toggle('-rotate-45',   !isOpen);
-    lines[2]?.classList.toggle('-translate-y-2', !isOpen);
-}
-
-function homeNavbarCloseMobile() {
-    const btn  = document.getElementById('navbar-hamburger');
-    const menu = document.getElementById('mobile-menu');
-    if (!menu) return;
-
-    menu.setAttribute('aria-hidden', 'true');
-    btn?.setAttribute('aria-expanded', 'false');
-    menu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-    menu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-
-    const lines = btn?.querySelectorAll('.hamburger-line');
-    lines?.[0]?.classList.remove('rotate-45', 'translate-y-2');
-    lines?.[1]?.classList.remove('opacity-0');
-    lines?.[2]?.classList.remove('-rotate-45', '-translate-y-2');
-}
-
-// Make mobile helpers global (called from blade onclick)
-window.homeNavbarToggleMobile = homeNavbarToggleMobile;
-window.homeNavbarCloseMobile  = homeNavbarCloseMobile;
 
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -300,7 +186,6 @@ window.homeGalleryCloseModal = homeGalleryCloseModal;
 // ══════════════════════════════════════════════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', () => {
-    homeNavbarInit();
     homeHeroInit();
     homeRevealInit();
     homeGalleryInitKeyboard();

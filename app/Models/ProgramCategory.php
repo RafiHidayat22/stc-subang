@@ -1,41 +1,32 @@
 <?php
-// app/Models/Program.php
+// app/Models/ProgramCategory.php
 
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Program extends Model
+class ProgramCategory extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $fillable = [
-        'category_id',
-        'title',
+        'name',
         'slug',
         'description',
         'description_long',
         'thumbnail',
-        'icon',               // Material Symbol name
-        'modules',            // JSON: ["Module A", "Module B"]
-        'learning_outcomes',  // JSON: ["Outcome A", "Outcome B"]
-        'target_participants',// JSON: ["Operator", "Teknisi"]
-        'duration',           // e.g. "3 Bulan"
-        'level',              // e.g. "Operator" / "Teknisi" / "Profesional"
-        'price_display',      // e.g. "Rp 4.500.000"
-        'is_featured',
+        'icon',                   // Material Symbol name
+        'duration',               // e.g. "1-12 Hari"
+        'certification_body',     // e.g. "BNSP"
+        'target_participant',
+        'price_display',          // e.g. "Rp 3.500.000"
         'is_active',
         'order',
     ];
 
     protected $casts = [
-        'modules'             => 'array',
-        'learning_outcomes'   => 'array',
-        'target_participants' => 'array',
-        'is_featured'         => 'boolean',
-        'is_active'           => 'boolean',
+        'is_active' => 'boolean',
     ];
 
     // ─── Scopes ───────────────────────────────────────────────────────
@@ -45,16 +36,11 @@ class Program extends Model
         return $query->where('is_active', true);
     }
 
-    public function scopeFeatured($query)
-    {
-        return $query->where('is_featured', true);
-    }
-
     // ─── Relations ────────────────────────────────────────────────────
 
-    public function category()
+    public function programs()
     {
-        return $this->belongsTo(ProgramCategory::class, 'category_id');
+        return $this->hasMany(Program::class, 'category_id');
     }
 
     // ─── Route model binding ──────────────────────────────────────────

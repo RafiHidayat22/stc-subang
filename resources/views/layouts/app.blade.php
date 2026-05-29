@@ -54,6 +54,9 @@
         <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
     </button>
 
+        @vite(['resources/js/navbar.js'])
+
+
     {{-- Vite: JS --}}
     @vite(['resources/js/app.js'])
 

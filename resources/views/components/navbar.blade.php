@@ -29,9 +29,9 @@
         <nav class="hidden md:flex gap-8 items-center" aria-label="Navigasi Utama">
             @php
                 $navLinks = [
-                    ['href' => '#hero',          'label' => 'Home'],
-                    ['href' => '#about',         'label' => 'About'],
-                    ['href' => '#programs',      'label' => 'Programs'],
+                    ['href' => '/',          'label' => 'Home'],
+                    ['href' => '/about',         'label' => 'About'],
+                    ['href' => '/programs',      'label' => 'Programs'],
                     ['href' => '#certification', 'label' => 'Certification'],
                     ['href' => '#gallery',       'label' => 'Gallery'],
                     ['href' => '#contact',       'label' => 'Contact'],
