@@ -30,7 +30,7 @@
 {{-- ═══════════════════════════════════════════════
      HERO SECTION
 ════════════════════════════════════════════════ --}}
-<section class="relative pt-20 pb-32 overflow-hidden bg-primary" aria-label="Hero Program Pelatihan">
+<section class="relative pt-28 pb-32 overflow-hidden bg-primary" aria-label="Hero Program Pelatihan">
     <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center"
          style="background-image:url('{{ asset('images/hero-programs.jpg') }}')"></div>
     <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-industrial-blue-light/30 to-transparent z-0"></div>

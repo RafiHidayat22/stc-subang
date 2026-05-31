@@ -32,9 +32,9 @@
                     ['href' => '/',          'label' => 'Home'],
                     ['href' => '/about',         'label' => 'About'],
                     ['href' => '/programs',      'label' => 'Programs'],
-                    ['href' => '#certification', 'label' => 'Certification'],
-                    ['href' => '#gallery',       'label' => 'Gallery'],
-                    ['href' => '#contact',       'label' => 'Contact'],
+                    ['href' => '/certification', 'label' => 'Certification'],
+                    ['href' => '/articles',       'label' => 'Articles'],
+                    ['href' => '/contact',       'label' => 'Contact'],
                 ];
             @endphp
 

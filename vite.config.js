@@ -13,7 +13,9 @@ export default defineConfig({
                 'resources/js/navbar.js',
                 'resources/js/program.js',
                 'resources/js/category_program.js',
-                'resources/js/detail_program.js'   // page-specific chunk
+                'resources/js/detail_program.js',
+                'resources/js/article.js',
+                'resources/js/article_detail.js'   // page-specific chunk
             ],
             refresh: true,
         }),

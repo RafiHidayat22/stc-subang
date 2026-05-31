@@ -45,9 +45,9 @@
                     @php
                         $quickLinks = [
                             ['href' => route('home'),             'label' => 'Beranda'],
-                            ['href' => '#programs',               'label' => 'Program Pelatihan'],
-                            ['href' => '#certification',          'label' => 'Sertifikasi'],
-                            ['href' => '#gallery',                'label' => 'Gallery'],
+                            ['href' => '/programs',               'label' => 'Program Pelatihan'],
+                            ['href' => '/certification',          'label' => 'Sertifikasi'],
+                            ['href' => '/articles',                'label' => 'Articles'],
                             ['href' => '#contact',                'label' => 'Hubungi Kami'],
                             ['href' => route('privacy-policy'),   'label' => 'Privacy Policy'],
                         ];

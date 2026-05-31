@@ -222,26 +222,55 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
             {{-- Partner card --}}
-            <div class="about-synergy-card bg-white p-12 rounded-xl shadow-sm flex flex-col items-center justify-center space-y-6 border-t-4 border-safety-orange about-reveal-left">
-                <div class="flex gap-8 items-center justify-center">
-                    <div class="flex flex-col items-center gap-2 text-center">
-                        <span class="material-symbols-outlined text-industrial-blue-light about-float" style="font-size:52px" aria-hidden="true">factory</span>
-                        <span class="font-bold text-xs text-primary">PT SUBANG ENERGI ABADI</span>
-                        <span class="text-xs text-on-surface-variant">(Perseroda)</span>
-                    </div>
-                    <div class="h-14 w-px bg-outline-variant" aria-hidden="true"></div>
-                    <div class="flex flex-col items-center gap-2 text-center">
-                        <span class="material-symbols-outlined text-safety-orange about-float" style="font-size:52px; animation-delay:.4s" aria-hidden="true">engineering</span>
-                        <span class="font-bold text-xs text-primary">PT ARYNDO UTAMA</span>
-                        <span class="text-xs text-on-surface-variant">SARANA SUKSES</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <span class="material-symbols-outlined text-safety-orange text-3xl block mb-2" aria-hidden="true">handshake</span>
-                    <p class="font-bold text-lg text-primary uppercase tracking-wide">"End-to-End Training and Certification"</p>
-                </div>
-            </div>
+<div class="about-synergy-card bg-white p-12 rounded-xl shadow-sm flex flex-col items-center justify-center space-y-6 border-t-4 border-safety-orange about-reveal-left">
 
+    <div class="flex gap-8 items-center justify-center">
+
+        {{-- Logo pertama --}}
+        <div class="flex flex-col items-center gap-2 text-center">
+            <img
+                src="{{ asset('images/logo-subang-energi.png') }}"
+                alt="PT Subang Energi Abadi"
+                class="w-[95px] h-[95px] object-contain about-float"
+            >
+
+            <span class="font-bold text-xs text-primary">
+                PT SUBANG ENERGI ABADI (Perseroda)
+            </span>
+        </div>
+
+        <div class="h-14 w-px bg-outline-variant" aria-hidden="true"></div>
+
+        {{-- Logo kedua --}}
+        <div class="flex flex-col items-center gap-2 text-center">
+            <img
+                src="{{ asset('images/Logo-aryndo.png') }}"
+                alt="PT Aryndo Utama Sarana Sukses"
+                class="w-[95px] h-[95px] object-contain about-float"
+                style="animation-delay:.4s"
+            >
+
+            <span class="font-bold text-xs text-primary">
+                PT ARYNDO UTAMA SARANA SUKSES
+            </span>
+        </div>
+
+    </div>
+
+    <div class="text-center">
+        <span
+            class="material-symbols-outlined text-safety-orange text-3xl block mb-2"
+            aria-hidden="true"
+        >
+            handshake
+        </span>
+
+        <p class="font-bold text-lg text-primary uppercase tracking-wide">
+            "End-to-End Training and Certification"
+        </p>
+    </div>
+
+</div>
             {{-- Points list --}}
             <div class="space-y-4 about-stagger">
                 @php
