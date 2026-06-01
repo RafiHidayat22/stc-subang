@@ -6,6 +6,7 @@ use App\Models\Program;
 use App\Models\Gallery;
 use App\Models\Certification;
 use App\Models\Testimonial;
+use App\Models\CertificationItem;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -36,6 +37,13 @@ class HomeController extends Controller
             ->orderBy('order')
             ->get();
 
+        $certificationItems = CertificationItem::query()
+            ->where('is_active', true)
+            ->orderByDesc('is_featured')
+            ->orderBy('order')
+            ->limit(6)
+            ->get();
+
         $testimonials = Testimonial::query()
             ->where('is_active', true)
             ->orderByDesc('is_featured')
@@ -43,12 +51,13 @@ class HomeController extends Controller
             ->get();
 
         return view('home.index', [
-            'programs'       => $programs,
-            'galleries'      => $galleries,
-            'certifications' => $certifications,
-            'testimonials'   => $testimonials,
-            'meta_title'     => 'STC Indonesia | Subang Training Center – Professional Industrial Training',
-            'meta_description' => 'Pusat pelatihan industri berbasis kompetensi. Program bersertifikasi BNSP & Kemnaker RI untuk manufaktur, otomotif, migas, K3, welding, dan listrik.',
+            'programs'            => $programs,
+            'galleries'           => $galleries,
+            'certifications'      => $certifications,
+            'certificationItems'  => $certificationItems,
+            'testimonials'        => $testimonials,
+            'meta_title'          => 'STC Indonesia | Subang Training Center – Professional Industrial Training',
+            'meta_description'    => 'Pusat pelatihan industri berbasis kompetensi. Program bersertifikasi BNSP & Kemnaker RI untuk manufaktur, otomotif, migas, K3, welding, dan listrik.',
         ]);
     }
 }

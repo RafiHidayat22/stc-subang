@@ -141,31 +141,53 @@ function homeGalleryOpenModal(src, caption) {
     const modal   = document.getElementById('gallery-modal');
     const img     = document.getElementById('gallery-modal-img');
     const cap     = document.getElementById('gallery-modal-caption');
+
     if (!modal || !img) return;
 
-    img.src        = src;
-    img.alt        = caption || '';
-    if (cap) cap.textContent = caption || '';
+    // reset opacity sebelum load
+    img.style.opacity = '0';
+
+    img.onload = () => {
+        img.style.opacity = '1';
+    };
+
+    img.src = src;
+    img.alt = caption || '';
+
+    if (cap) {
+        cap.textContent = caption || '';
+    }
 
     modal.classList.remove('opacity-0', 'pointer-events-none');
     modal.classList.add('opacity-100', 'pointer-events-auto');
+
     document.body.style.overflow = 'hidden';
 
-    // Focus trap
+    // focus button close
     const closeBtn = modal.querySelector('button');
     closeBtn?.focus();
 }
 
 function homeGalleryCloseModal(event) {
-    // Close only when clicking backdrop (not the image itself)
-    if (event && event.target !== event.currentTarget && event.target.tagName !== 'BUTTON') return;
+    if (
+        event &&
+        event.target !== event.currentTarget &&
+        event.target.tagName !== 'BUTTON'
+    ) return;
 
     const modal = document.getElementById('gallery-modal');
+    const img   = document.getElementById('gallery-modal-img');
+
     if (!modal) return;
 
     modal.classList.add('opacity-0', 'pointer-events-none');
     modal.classList.remove('opacity-100', 'pointer-events-auto');
+
     document.body.style.overflow = '';
+
+    if (img) {
+        img.style.opacity = '0';
+    }
 }
 
 function homeGalleryInitKeyboard() {

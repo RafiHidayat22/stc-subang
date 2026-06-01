@@ -8,7 +8,7 @@ use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CertificationController;
 use App\Http\Controllers\ArticleController;
-
+use App\Http\Controllers\GalleryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,9 +39,29 @@ Route::prefix('programs')->name('programs.')->group(function () {
     Route::get('/{program:slug}', [ProgramController::class, 'show'])->name('show');
 });
 
-// ── Gallery ───────────────────────────────────────────────────────────────
-Route::get('/gallery', fn () => view('gallery.index'))->name('gallery.index');
-
+// ── Gallery ──────────────────────────────────────────────────────────────────
+// Public gallery index (all categories, JS-filtered)
+Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])
+    ->name('gallery.index');
+ 
+// Public gallery detail — photos filtered by category slug
+// The "all" slug shows every active photo.
+// Place this AFTER all other /gallery/* routes to avoid conflicts.
+Route::get('/gallery/{category}', [App\Http\Controllers\DetailGalleryController::class, 'index'])
+    ->name('gallery.detail')
+    ->where('category', '[^/]+');   // allow spaces encoded as %20
+ 
+// ── Admin Gallery ─────────────────────────────────────────────────────────────
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+    Route::get   ('gallery',              [App\Http\Controllers\GalleryController::class, 'adminIndex'])->name('gallery.index');
+    Route::get   ('gallery/create',       [App\Http\Controllers\GalleryController::class, 'create'])    ->name('gallery.create');
+    Route::post  ('gallery',              [App\Http\Controllers\GalleryController::class, 'store'])     ->name('gallery.store');
+    Route::get   ('gallery/{gallery}/edit',   [App\Http\Controllers\GalleryController::class, 'edit'])    ->name('gallery.edit');
+    Route::put   ('gallery/{gallery}',        [App\Http\Controllers\GalleryController::class, 'update'])  ->name('gallery.update');
+    Route::delete('gallery/{gallery}',        [App\Http\Controllers\GalleryController::class, 'destroy']) ->name('gallery.destroy');
+    Route::patch ('gallery/{gallery}/toggle', [App\Http\Controllers\GalleryController::class, 'toggleActive'])->name('gallery.toggle');
+    Route::post  ('gallery/reorder',          [App\Http\Controllers\GalleryController::class, 'reorder'])    ->name('gallery.reorder');
+});
 // ── Legal ─────────────────────────────────────────────────────────────────
 Route::get('/privacy-policy', fn () => view('legal.privacy'))->name('privacy-policy');
 Route::get('/terms', fn () => view('legal.terms'))->name('terms');

@@ -11,7 +11,7 @@ class Gallery extends Model
 
     protected $fillable = [
         'caption',
-        'image',        // Storage path
+        'image',
         'category',
         'is_active',
         'order',

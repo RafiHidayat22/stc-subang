@@ -418,6 +418,10 @@
 {{-- ================================================================
      PROGRAM SERTIFIKASI SECTION
 ================================================================ --}}
+```blade
+{{-- ================================================================
+     PROGRAM SERTIFIKASI SECTION
+================================================================ --}}
 <section
     id="sertifikasi-program"
     class="py-stack-lg bg-primary home-reveal"
@@ -429,167 +433,242 @@
             <div>
                 <div class="flex items-center gap-3 mb-2">
                     <span class="material-symbols-outlined text-safety-orange text-3xl stc-float" aria-hidden="true">workspace_premium</span>
-                    <span class="text-safety-orange font-bold tracking-widest text-sm uppercase">Diakui Nasional &amp; Internasional</span>
+                    <span class="text-safety-orange font-bold tracking-widest text-sm uppercase">
+                        Diakui Nasional &amp; Internasional
+                    </span>
                 </div>
-                <h2 class="text-3xl font-bold text-white mt-2">Program Sertifikasi</h2>
-                <div class="w-0 h-1.5 bg-safety-orange rounded-full mt-4 stc-line-draw" aria-hidden="true"></div>
+
+                <h2 class="text-3xl font-bold text-white mt-2">
+                    Program Sertifikasi
+                </h2>
+
+                <div
+                    class="w-0 h-1.5 bg-safety-orange rounded-full mt-4 stc-line-draw"
+                    aria-hidden="true"
+                ></div>
             </div>
+
             <p class="max-w-md text-outline-variant text-base">
-                Raih sertifikasi resmi yang diakui industri dan pemerintah untuk meningkatkan nilai kompetensi Anda.
+                Raih sertifikasi resmi yang diakui industri dan pemerintah
+                untuk meningkatkan nilai kompetensi Anda.
             </p>
         </div>
 
-        @php
-            $sertifikasiPrograms = [
-                [
-                    'code'        => 'BNSP-001',
-                    'title'       => 'Sertifikasi Operator Produksi',
-                    'issuer'      => 'BNSP — Badan Nasional Sertifikasi Profesi',
-                    'duration'    => '5 Hari',
-                    'level'       => 'Operator',
-                    'badge'       => 'BNSP',
-                    'badge_color' => 'bg-blue-500',
-                    'icon'        => 'precision_manufacturing',
-                    'img'         => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
-                    'topics'      => ['Standar Kompetensi Kerja Nasional (SKKNI)', 'Praktik Produksi Industri', 'Asesmen & Uji Kompetensi'],
-                ],
-                [
-                    'code'        => 'K3-UMUM',
-                    'title'       => 'Sertifikasi Ahli K3 Umum',
-                    'issuer'      => 'Kementerian Ketenagakerjaan RI',
-                    'duration'    => '12 Hari',
-                    'level'       => 'Profesional',
-                    'badge'       => 'Kemnaker',
-                    'badge_color' => 'bg-green-600',
-                    'icon'        => 'health_and_safety',
-                    'img'         => 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80',
-                    'topics'      => ['Perundangan K3 Indonesia', 'Manajemen Risiko & Hazard', 'Inspeksi & Audit K3'],
-                ],
-                [
-                    'code'        => 'WELDING-AWS',
-                    'title'       => 'Sertifikasi Welder Internasional',
-                    'issuer'      => 'AWS — American Welding Society',
-                    'duration'    => '10 Hari',
-                    'level'       => 'Internasional',
-                    'badge'       => 'AWS',
-                    'badge_color' => 'bg-red-600',
-                    'icon'        => 'hardware',
-                    'img'         => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80',
-                    'topics'      => ['Teknik SMAW, MIG & TIG', 'Standar Kualitas Lasan ASME', 'Uji NDT & Kompetensi Lapangan'],
-                ],
-                [
-                    'code'        => 'MIGAS-001',
-                    'title'       => 'Sertifikasi Tenaga Teknik MIGAS',
-                    'issuer'      => 'Kementerian ESDM RI',
-                    'duration'    => '8 Hari',
-                    'level'       => 'Spesialis',
-                    'badge'       => 'ESDM',
-                    'badge_color' => 'bg-amber-600',
-                    'icon'        => 'oil_barrel',
-                    'img'         => 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
-                    'topics'      => ['Keselamatan Operasi MIGAS', 'Well Control & IWCF', 'H2S Safety & Emergency Response'],
-                ],
-                [
-                    'code'        => 'PLC-SCADA',
-                    'title'       => 'Sertifikasi Teknisi Instrumentasi',
-                    'issuer'      => 'BNSP — Badan Nasional Sertifikasi Profesi',
-                    'duration'    => '7 Hari',
-                    'level'       => 'Teknisi',
-                    'badge'       => 'BNSP',
-                    'badge_color' => 'bg-blue-500',
-                    'icon'        => 'electrical_services',
-                    'img'         => 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&q=80',
-                    'topics'      => ['PLC Programming & SCADA', 'Kalibrasi Instrumen Industri', 'Loop Checking & Commissioning'],
-                ],
-                [
-                    'code'        => 'AUTOMOTIF-EV',
-                    'title'       => 'Sertifikasi Teknisi Otomotif EV',
-                    'issuer'      => 'BNSP — Kemnaker RI',
-                    'duration'    => '6 Hari',
-                    'level'       => 'Teknisi',
-                    'badge'       => 'Kemnaker',
-                    'badge_color' => 'bg-green-600',
-                    'icon'        => 'directions_car',
-                    'img'         => 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80',
-                    'topics'      => ['Sistem Kelistrikan Kendaraan EV', 'Baterai & Manajemen Daya', 'Diagnostic & Troubleshooting EV'],
-                ],
-            ];
-        @endphp
-
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stc-stagger">
-            @foreach ($sertifikasiPrograms as $sert)
-                <article class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden stc-sert-card">
+
+            @forelse ($certificationItems as $sert)
+
+                <article
+                    class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden stc-sert-card"
+                >
+
+                    {{-- Thumbnail --}}
                     <div class="relative h-44 overflow-hidden">
+
                         <img
-                            src="{{ $sert['img'] }}"
-                            alt="{{ $sert['title'] }}"
+                            src="{{ $sert->thumbnail ? Storage::url($sert->thumbnail) : asset('images/placeholder-program.jpg') }}"
+                            alt="{{ e($sert->name) }}"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 brightness-50"
                             loading="lazy"
                         />
+
+                        {{-- Badge --}}
                         <div class="absolute top-0 inset-x-0 p-3 flex items-start justify-between">
-                            <span class="{{ $sert['badge_color'] }} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm" aria-hidden="true">verified</span>
-                                {{ $sert['badge'] }}
-                            </span>
-                            <span class="bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">
-                                {{ $sert['level'] }}
-                            </span>
+
+                            @if ($sert->badge_label)
+                                <span class="{{ $sert->badge_color ?? 'bg-safety-orange' }} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                                        verified
+                                    </span>
+
+                                    {{ $sert->badge_label }}
+                                </span>
+                            @endif
+
+                            @if ($sert->level)
+                                <span class="bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">
+                                    {{ $sert->level }}
+                                </span>
+                            @endif
+
                         </div>
+
+                        {{-- Hover Icon --}}
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span class="material-symbols-outlined text-white drop-shadow-lg" style="font-size:64px" aria-hidden="true">{{ $sert['icon'] }}</span>
-                        </div>
-                        <div class="absolute bottom-3 left-4">
-                            <span class="text-white/60 text-xs font-mono tracking-widest">{{ $sert['code'] }}</span>
+
+                            <span
+                                class="material-symbols-outlined text-white drop-shadow-lg"
+                                style="font-size:64px"
+                                aria-hidden="true"
+                            >
+                                {{ $sert->icon ?? 'workspace_premium' }}
+                            </span>
+
                         </div>
                     </div>
 
+                    {{-- Content --}}
                     <div class="p-6">
-                        <h3 class="font-bold text-white text-lg mb-2 leading-snug">{{ $sert['title'] }}</h3>
-                        <p class="text-safety-orange text-sm font-semibold mb-4 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-lg" aria-hidden="true">verified_user</span>
-                            {{ $sert['issuer'] }}
-                        </p>
 
-                        <ul class="space-y-2 mb-5">
-                            @foreach ($sert['topics'] as $topic)
-                                <li class="flex items-start gap-2 text-white/70 text-sm">
-                                    <span class="material-symbols-outlined text-safety-orange text-xl mt-0.5 flex-shrink-0" aria-hidden="true">check_circle</span>
-                                    {{ $topic }}
-                                </li>
-                            @endforeach
-                        </ul>
+                        {{-- Title --}}
+                        <h3 class="font-bold text-white text-lg mb-2 leading-snug">
+                            {{ e($sert->name) }}
+                        </h3>
 
+                        {{-- Issuer --}}
+                        @if ($sert->issuer)
+                            <p class="text-safety-orange text-sm font-semibold mb-4 flex items-center gap-2">
+                                <span
+                                    class="material-symbols-outlined text-lg"
+                                    aria-hidden="true"
+                                >
+                                    verified_user
+                                </span>
+
+                                {{ e($sert->issuer) }}
+                            </p>
+                        @endif
+
+                        {{-- Topics --}}
+                        @if (!empty($sert->topics))
+                            <ul class="space-y-2 mb-5">
+
+                                @foreach (($sert->topics ?? []) as $topic)
+
+                                    <li class="flex items-start gap-2 text-white/70 text-sm">
+
+                                        <span
+                                            class="material-symbols-outlined text-safety-orange text-xl mt-0.5 flex-shrink-0"
+                                            aria-hidden="true"
+                                        >
+                                            check_circle
+                                        </span>
+
+                                        {{ $topic }}
+
+                                    </li>
+
+                                @endforeach
+
+                            </ul>
+                        @endif
+
+                        {{-- Footer --}}
                         <div class="flex items-center justify-between pt-4 border-t border-white/10">
+
+                            {{-- Duration --}}
                             <div class="flex items-center gap-2 text-white/60 text-sm">
-                                <span class="material-symbols-outlined text-xl" aria-hidden="true">schedule</span>
-                                <span>{{ $sert['duration'] }}</span>
+
+                                <span
+                                    class="material-symbols-outlined text-xl"
+                                    aria-hidden="true"
+                                >
+                                    schedule
+                                </span>
+
+                                <span>
+                                    {{ $sert->duration ?? '-' }}
+                                </span>
+
                             </div>
-                            <a href="#" class="text-safety-orange font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all duration-300">
+
+                            {{-- Link --}}
+                            <a
+                                href="{{ route('certification.index', $sert) }}"
+                                class="text-safety-orange font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all duration-300"
+                            >
                                 Info Lengkap
-                                <span class="material-symbols-outlined text-xl" aria-hidden="true">arrow_forward</span>
+
+                                <span
+                                    class="material-symbols-outlined text-xl"
+                                    aria-hidden="true"
+                                >
+                                    arrow_forward
+                                </span>
                             </a>
+
                         </div>
+
                     </div>
+
                 </article>
-            @endforeach
+
+            @empty
+
+                <div class="col-span-full text-center text-white/70 py-20">
+
+                    <span
+                        class="material-symbols-outlined text-6xl mb-4 block opacity-50"
+                        aria-hidden="true"
+                    >
+                        workspace_premium
+                    </span>
+
+                    <h3 class="text-xl font-bold mb-2">
+                        Program sertifikasi belum tersedia
+                    </h3>
+
+                    <p class="text-sm opacity-70">
+                        Silakan tambahkan data sertifikasi melalui admin panel.
+                    </p>
+
+                </div>
+
+            @endforelse
+
         </div>
 
         {{-- CTA Sertifikasi --}}
-        <div class="mt-16 bg-white/5 border border-safety-orange/30 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 stc-reveal">
+        <div
+            class="mt-16 bg-white/5 border border-safety-orange/30 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 stc-reveal"
+        >
+
             <div class="flex items-start gap-5">
-                <span class="material-symbols-outlined text-safety-orange stc-float flex-shrink-0" style="font-size:48px" aria-hidden="true">handshake</span>
+
+                <span
+                    class="material-symbols-outlined text-safety-orange stc-float flex-shrink-0"
+                    style="font-size:48px"
+                    aria-hidden="true"
+                >
+                    handshake
+                </span>
+
                 <div>
-                    <h3 class="text-xl font-bold text-white mb-2">Ingin Program Sertifikasi Khusus?</h3>
-                    <p class="text-outline-variant text-base">Kami juga menyediakan program in-house training dan sertifikasi sesuai kebutuhan spesifik perusahaan Anda.</p>
+
+                    <h3 class="text-xl font-bold text-white mb-2">
+                        Ingin Program Sertifikasi Khusus?
+                    </h3>
+
+                    <p class="text-outline-variant text-base">
+                        Kami juga menyediakan program in-house training dan
+                        sertifikasi sesuai kebutuhan spesifik perusahaan Anda.
+                    </p>
+
                 </div>
+
             </div>
-            <a href="#cta" class="whitespace-nowrap bg-safety-orange hover:bg-orange-600 text-white px-7 py-3.5 rounded-xl text-base font-bold transition-all duration-200 hover:-translate-y-1 shadow-xl hover:shadow-orange-500/30 flex items-center gap-3">
-                <span class="material-symbols-outlined text-xl" aria-hidden="true">forum</span>
+
+            <a
+                href="#cta"
+                class="whitespace-nowrap bg-safety-orange hover:bg-orange-600 text-white px-7 py-3.5 rounded-xl text-base font-bold transition-all duration-200 hover:-translate-y-1 shadow-xl hover:shadow-orange-500/30 flex items-center gap-3"
+            >
+
+                <span
+                    class="material-symbols-outlined text-xl"
+                    aria-hidden="true"
+                >
+                    forum
+                </span>
+
                 Konsultasi Sekarang
+
             </a>
+
         </div>
+
     </div>
 </section>
+```
 
 
 {{-- ================================================================
@@ -632,7 +711,12 @@
 
 
 {{-- ================================================================
-     GALLERY SECTION
+     GALLERY SECTION  (ganti blok <section id="gallery"> yang lama)
+     Perubahan utama:
+       1. Setiap .stc-gallery-item kini pakai data-src & data-caption
+          sehingga JS dapat membangun daftar item untuk navigasi prev/next.
+       2. onclick memanggil homeGalleryOpenModal dengan indeks agar konsisten.
+       3. Fallback dummy juga menggunakan pola yang sama.
 ================================================================ --}}
 <section
     id="gallery"
@@ -652,55 +736,115 @@
             Lihat Semua <span class="material-symbols-outlined text-xl" aria-hidden="true">arrow_forward</span>
         </a>
     </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 h-[500px] md:h-[600px] gap-2 px-2">
+ 
+    {{-- ── Grid foto ── --}}
+    <div class="grid grid-cols-2 md:grid-cols-4 h-[500px] md:h-[600px] gap-2 px-2" id="gallery-grid">
+ 
         @forelse ($galleries as $item)
-            <div class="stc-gallery-item relative overflow-hidden group cursor-pointer" onclick="homeGalleryOpenModal('{{ Storage::url($item->image) }}', '{{ e($item->caption) }}')">
-                <img src="{{ Storage::url($item->image) }}" alt="{{ e($item->caption) }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+ 
+            @php
+                $src = \Illuminate\Support\Str::startsWith($item->image, 'http')
+                    ? $item->image
+                    : Storage::url($item->image);
+
+                $caption = e($item->caption);
+            @endphp
+ 
+            <div
+                class="stc-gallery-item relative overflow-hidden group cursor-pointer"
+                data-src="{{ $src }}"
+                data-caption="{{ $caption }}"
+                onclick="homeGalleryOpenModal('{{ $src }}', '{{ $caption }}')"
+                role="button"
+                tabindex="0"
+                aria-label="Lihat foto: {{ $caption }}"
+                onkeydown="if(event.key==='Enter'||event.key===' ') homeGalleryOpenModal('{{ $src }}', '{{ $caption }}')"
+            >
+                <img
+                    src="{{ $src }}"
+                    alt="{{ $caption }}"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                />
                 <div class="stc-gallery-overlay absolute inset-0 bg-primary/70 flex flex-col items-center justify-center gap-3">
                     <span class="material-symbols-outlined text-white" style="font-size:40px" aria-hidden="true">zoom_in</span>
-                    <span class="text-white font-bold border-b-2 border-safety-orange pb-1 text-center px-4 text-sm">{{ e($item->caption) }}</span>
+                    <span class="text-white font-bold border-b-2 border-safety-orange pb-1 text-center px-4 text-sm">
+                        {{ $caption }}
+                    </span>
                 </div>
             </div>
+ 
         @empty
+ 
+            {{-- Dummy data bila tabel gallery masih kosong --}}
             @php
                 $dummyGallery = [
-                    ['src' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', 'caption' => 'Safety First Training'],
-                    ['src' => 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80', 'caption' => 'Automotive Lab'],
-                    ['src' => 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80', 'caption' => 'Welding Certification'],
-                    ['src' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80', 'caption' => 'Industrial Production'],
+                    ['src' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', 'caption' => 'Safety First Training'],
+                    ['src' => 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80', 'caption' => 'Automotive Lab'],
+                    ['src' => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80', 'caption' => 'Welding Certification'],
+                    ['src' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80', 'caption' => 'Industrial Production'],
                 ];
             @endphp
+ 
             @foreach ($dummyGallery as $g)
                 <div
                     class="stc-gallery-item relative overflow-hidden group cursor-pointer"
+                    data-src="{{ $g['src'] }}"
+                    data-caption="{{ $g['caption'] }}"
                     onclick="homeGalleryOpenModal('{{ $g['src'] }}', '{{ $g['caption'] }}')"
-                    role="button" tabindex="0"
+                    role="button"
+                    tabindex="0"
                     aria-label="Lihat foto: {{ $g['caption'] }}"
-                    onkeydown="if(event.key==='Enter') homeGalleryOpenModal('{{ $g['src'] }}', '{{ $g['caption'] }}')"
+                    onkeydown="if(event.key==='Enter'||event.key===' ') homeGalleryOpenModal('{{ $g['src'] }}', '{{ $g['caption'] }}')"
                 >
-                    <img src="{{ $g['src'] }}" alt="{{ $g['caption'] }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                    <img
+                        src="{{ $g['src'] }}"
+                        alt="{{ $g['caption'] }}"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                    />
                     <div class="stc-gallery-overlay absolute inset-0 bg-primary/70 flex flex-col items-center justify-center gap-3">
                         <span class="material-symbols-outlined text-white" style="font-size:40px" aria-hidden="true">zoom_in</span>
-                        <span class="text-white font-bold border-b-2 border-safety-orange pb-1 text-center px-4 text-sm">{{ $g['caption'] }}</span>
+                        <span class="text-white font-bold border-b-2 border-safety-orange pb-1 text-center px-4 text-sm">
+                            {{ $g['caption'] }}
+                        </span>
                     </div>
                 </div>
             @endforeach
+ 
         @endforelse
+ 
     </div>
-
-    {{-- Gallery Modal --}}
+ 
+    {{-- ── Modal viewer ── --}}
     <div
         id="gallery-modal"
         class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300"
-        role="dialog" aria-modal="true" aria-label="Gallery viewer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Gallery viewer"
         onclick="homeGalleryCloseModal(event)"
     >
-        <button class="absolute top-4 right-4 text-white hover:text-safety-orange transition-colors p-2" onclick="homeGalleryCloseModal()" aria-label="Tutup gallery">
+        {{-- Close button --}}
+        <button
+            class="absolute top-4 right-4 text-white hover:text-safety-orange transition-colors p-2 z-30"
+            onclick="homeGalleryCloseModal()"
+            aria-label="Tutup gallery"
+        >
             <span class="material-symbols-outlined" style="font-size:36px" aria-hidden="true">close</span>
         </button>
-        <figure class="max-w-4xl w-full">
-            <img id="gallery-modal-img" src="" alt="" class="w-full max-h-[80vh] object-contain rounded-lg shadow-2xl" />
+ 
+        {{-- Prev / Next buttons injected by gallery.js --}}
+ 
+        {{-- Image & caption --}}
+        <figure class="max-w-4xl w-full pointer-events-none select-none">
+            <img
+                id="gallery-modal-img"
+                src=""
+                alt=""
+                class="w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300"
+                style="opacity:0"
+            />
             <figcaption id="gallery-modal-caption" class="text-white text-center mt-4 font-semibold text-base"></figcaption>
         </figure>
     </div>
